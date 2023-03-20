@@ -8,7 +8,7 @@ ENV WD=/home
 
 RUN apt-get update -y && apt-get dist-upgrade -y && apt-get upgrade -y && apt-get install -y python$PYTHON_VERSION wget
 RUN cd $WD && wget https://bootstrap.pypa.io/get-pip.py && python$PYTHON_VERSION get-pip.py && rm get-pip.py
-COPY . $WD/
+COPY src/ $WD/
 RUN cd $WD && pip install -r requirements.txt
 
 WORKDIR $WD
